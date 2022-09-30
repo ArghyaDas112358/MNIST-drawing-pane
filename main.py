@@ -28,7 +28,13 @@ if __name__ == "__main__":
 
     pred = '0'
     pygame.init()
-    screen = pygame.display.set_mode((512, 512))
+    size = 250
+    screen = pygame.display.set_mode((size, size))
+
+    Font=pygame.font.SysFont('timesnewroman',  30)
+    yellow=(255, 255, 0)
+    orange=(255, 100, 0)
+
     screen.fill((0, 0, 0))
     start = datetime.now()
     drawing = False
@@ -63,4 +69,6 @@ if __name__ == "__main__":
             will_pred = False
         pygame.display.set_caption("MNIST Pred: {} at {:.2f} FPS".format(pred, fps_clock.get_fps()))
         pygame.display.flip()
-        fps_clock.tick(fps)
+        letter1=Font.render(pred, False, orange, yellow)
+        screen.blit(letter1, (10, 10))
+
